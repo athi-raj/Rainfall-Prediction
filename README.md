@@ -1,4 +1,4 @@
-# Rainfall Prediction
+# Rainfall Prediction <a href="https://colab.research.google.com/drive/1g-rA36Z6pl5dB3sCKMouB4pRDoxJvMX5?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt=""></a>
 
 ## Overview
 This project analyzes daily rainfall data from different states across India. The dataset is cleaned and visualized to understand rainfall patterns, trends, and variations. The project demonstrates data preprocessing, exploratory data analysis (EDA), and visualization using Python.
