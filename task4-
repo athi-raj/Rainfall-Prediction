@@ -1,0 +1,52 @@
+# Average rainfall by year
+yearly_rainfall = df.groupby(df['date'].dt.year)['actual'].mean()
+
+plt.figure(figsize=(10,5))
+yearly_rainfall.plot()
+plt.title("Average Rainfall by Year")
+plt.xlabel("Year")
+plt.ylabel("Average Rainfall")
+plt.show()
+
+# Top 10 states with highest rainfall
+top_states = df.groupby('state_name')['actual'].mean().sort_values(ascending=False).head(10)
+
+plt.figure(figsize=(10,5))
+top_states.plot(kind='bar')
+plt.title("Top 10 States with Highest Rainfall")
+plt.ylabel("Average Rainfall")
+plt.show()
+
+# Actual vs Forecast Rainfall
+plt.figure(figsize=(8,5))
+sns.scatterplot(x='rfs', y='actual', data=df)
+plt.title("Forecast Rainfall vs Actual Rainfall")
+plt.xlabel("Forecast Rainfall")
+plt.ylabel("Actual Rainfall")
+plt.show()
+
+# Rainfall by month
+monthly_rainfall = df.groupby(df['date'].dt.month)['actual'].mean()
+
+plt.figure(figsize=(10,5))
+monthly_rainfall.plot(marker='o')
+plt.title("Monthly Rainfall Pattern")
+plt.xlabel("Month")
+plt.ylabel("Average Rainfall")
+plt.show()
+
+# Correlation analysis
+corr = df[['actual','rfs','normal','deviation']].corr()
+
+plt.figure(figsize=(8,6))
+sns.heatmap(corr, annot=True, cmap='coolwarm')
+plt.title("Correlation Between Rainfall Features")
+plt.show()
+
+# Findings
+print("\nFindings:")
+print("1. Rainfall varies across different states in India.")
+print("2. Monsoon months generally receive higher rainfall.")
+print("3. Forecast rainfall has a positive relationship with actual rainfall.")
+print("4. Some states consistently receive more rainfall than others.")
+print("5. Historical rainfall data can be used for rainfall prediction and planning.")
